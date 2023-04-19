@@ -1,3 +1,5 @@
+//WE WANT TO KILL OURSELVESSSSSSS!!!!!!!!!!!!!!!!!!!!!!!!
+
 import ddf.minim.*;
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;

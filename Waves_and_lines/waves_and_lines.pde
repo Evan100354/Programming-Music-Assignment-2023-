@@ -30,14 +30,16 @@ FFT fft;
 int bufferSize = 1024;
 float lerpedAverage = 0;
 float[] lerpedBuffer = new float[bufferSize];
+float c = 0;
+
 
 void draw()
 {
   background(0);
   colorMode(HSB);
   noFill();
-  
-  if(keyPressed == true)
+  strokeWeight(1);
+  //if(keyPressed == true)
   {
     float halfH = height / 2;
     float halfW = width / 2;
@@ -45,7 +47,7 @@ void draw()
     for (int i = 0 ; i < ab.size(); i ++)
     {
       total += abs(ab.get(i));
-      float c = map(i, 0, ab.size(), 0, 255);
+      float c = map(i, 0, ab.size(), 0, 120);
       stroke(c, 255, 255);
       lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.1f);
       line(i / 3, halfH, i / 3, halfH + (lerpedBuffer[i] * halfH * 2));
@@ -56,14 +58,35 @@ void draw()
     float average = total / (float) ab.size();
   
     lerpedAverage = lerp(lerpedAverage, average, 0.1f);
-  
-    float radius = 50 + (lerpedAverage * 450);
+    
+    c = c + 1;
+    if(c >= 255)
+    {
+      c = 0;
+    }
+    
+    strokeWeight(3);
+    stroke(c, 255, 255);
+    float radius = 20 + (lerpedAverage * 450);
     circle(halfW, halfH, radius * 2);
+    circle(halfW, halfH, radius * 1.75);
+    circle(halfW, halfH, radius * 1.5);
+    circle(halfW, halfH, radius * 1.25);
+    circle(halfW, halfH, radius * 1);
+    circle(halfW, halfH, radius * 0.75);
+    circle(halfW, halfH, radius * 0.5);
+    circle(halfW, halfH, radius * 0.25);
+
+
   
     float radius2 = 50 + (lerpedAverage * 1750);
     line(0, 0, radius2, radius2);
     line(width, 0, -(radius2) + width, radius2);
     line(0, height, radius2, -(radius2) + height);
     line(width, height, -(radius2) + width, -(radius2) + height);
+  }
+  //else
+  {
+    //println("slay");
   }
 }

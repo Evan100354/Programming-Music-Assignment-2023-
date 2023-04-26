@@ -34,7 +34,7 @@ void setup()
 String welcome = "Welcome to the Matrix.";
 String exit = "To Leave, Press ESC.";
 String stay = "To Continue, Press ENTER...";
-String scan = "Scanning... Press C to continue.";
+String scan = "Scanning... Scan Complete. Press C to continue.";
 String menu1 = "Welcome Back User.";
 String menu2 = "To choose your selected soundtrack, Press L, E, P or O."; 
 
@@ -90,6 +90,7 @@ void draw()
     }
     for (int i = 0; i < faces.length; i++) 
     { 
+      textSize(15);
       fill(70, 255, 255);
       text(scan, faces[i].x, faces[i].y - 10);
     }

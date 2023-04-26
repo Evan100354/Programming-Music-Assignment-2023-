@@ -112,6 +112,9 @@ void draw()
   
   if(key == 'l')
   {
+    ap1.pause();
+    ap1.rewind();
+    
     ab = ap.mix;
     ap.play();
     background(0);
@@ -163,9 +166,11 @@ void draw()
   
   if(key == 'e')
   {
+    ap.pause();
+    ap.rewind();
+    
     ab = ap1.mix;
     ap1.play();
-    ap.pause();
     background(0);
     noFill();
     strokeWeight(1);

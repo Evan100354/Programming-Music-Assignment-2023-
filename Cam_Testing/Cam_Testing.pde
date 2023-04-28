@@ -17,21 +17,34 @@ void setup()
 
 void draw()
 {
-  if(cam.available())
+  if(keyPressed == true)
   {
-    cam.read();
-  }
-  image(cam, 0, 0);
-  
-  scale(2);
+    if(cam.available())
+    {
+      cam.read();
+    }
+    image(cam, 0, 0);
+    
+    scale(2);
     opencv.loadImage(cam);
-  
+    
     image(cam, 0, 0 );
-  
+    
     noFill();
     stroke(70, 255, 255);
-    strokeWeight(3);
-    
+    strokeWeight(3); 
+  }
+}
+
+void captureEvent(Capture c) 
+{
+  c.read();
+}
+
+void keyReleased()
+{
+  if(key == ENTER)
+  {
     Rectangle[] faces = opencv.detect();
   
     for (int i = 0; i < faces.length; i++) 
@@ -42,11 +55,7 @@ void draw()
     { 
       textSize(15);
       fill(70, 255, 255);
-      text("Test", faces[i].x, faces[i].y - 10);
+      text("Scanning....", faces[i].x, faces[i].y - 10);
     }
-}
-
-void captureEvent(Capture c) 
-{
-  c.read();
+  }
 }

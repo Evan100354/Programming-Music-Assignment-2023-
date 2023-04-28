@@ -4,6 +4,7 @@ import java.awt.*;
 
 Capture cam;
 OpenCV opencv;
+boolean camScan = false;
 
 void setup()
 {
@@ -29,10 +30,11 @@ void draw()
     opencv.loadImage(cam);
     
     image(cam, 0, 0 );
-    
-    noFill();
-    stroke(70, 255, 255);
-    strokeWeight(3); 
+  }
+  
+  if(camScan == true)
+  {
+    println("test");
   }
 }
 
@@ -46,7 +48,11 @@ void keyReleased()
   if(key == ENTER)
   {
     Rectangle[] faces = opencv.detect();
-  
+      
+    noFill();
+    stroke(70, 255, 255);
+    strokeWeight(3); 
+    
     for (int i = 0; i < faces.length; i++) 
     {
       rect(faces[i].x, faces[i].y, faces[i].width, faces[i].height);
@@ -57,5 +63,6 @@ void keyReleased()
       fill(70, 255, 255);
       text("Scanning....", faces[i].x, faces[i].y - 10);
     }
+    camScan = true;
   }
 }

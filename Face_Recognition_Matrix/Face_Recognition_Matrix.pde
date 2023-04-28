@@ -78,6 +78,7 @@ void draw()
   rectMove = rectMove + 2;
   
   
+  
   if(camScan == true)
   {
     if(key == 'c')

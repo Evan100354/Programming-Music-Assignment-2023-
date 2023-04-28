@@ -18,7 +18,7 @@ void setup()
 
 void draw()
 {
-  background(0);
+  //background(0);
   if(keyPressed == true)
   {
     if(cam.available())
@@ -57,6 +57,7 @@ void keyReleased()
     for (int i = 0; i < faces.length; i++) 
     {
       rect(faces[i].x, faces[i].y, faces[i].width, faces[i].height);
+      camScan = true;
     }
     for (int i = 0; i < faces.length; i++) 
     { 
@@ -64,6 +65,6 @@ void keyReleased()
       fill(70, 255, 255);
       text("Scanning....", faces[i].x, faces[i].y - 10);
     }
-    camScan = true;
+    
   }
 }

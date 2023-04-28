@@ -178,17 +178,18 @@ void draw()
     
     float halfH = height / 2;
     float halfW = width / 2;
+    float qH = height/4;
     float total = 0;
     for (int i = 0 ; i < ab.size(); i ++)
     {
       total += abs(ab.get(i));
-      float c = map(i, 0, ab.size(), 0, 120);
+      float c = map(i, 0, ab.size(), 122.5, 255);
       stroke(c, 255, 255);
       lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.1f);
-      line(i / 3, halfH, i / 3, halfH + (lerpedBuffer[i] * halfH * 2));
-      line(-(i / 3) + width, halfH, -(i / 3) + width, halfH + (lerpedBuffer[i] * halfH * 2));
-      line(halfW, i / 3, halfW + (lerpedBuffer[i] * halfW * 2), i / 3);
-      line(halfW, -(i / 3) + height, halfW + (lerpedBuffer[i] * halfW * 2), -(i / 3) + height);
+      line(i / 3, qH, i / 3, qH + (lerpedBuffer[i] * halfH * 2));
+      line(-(i / 3) + width, qH, -(i / 3) + width, qH + (lerpedBuffer[i] * halfH * 2));
+      line(i / 3, qH+500, i / 3, (qH+500) + (lerpedBuffer[i] * halfH * 2));
+      line(-(i / 3) + width, qH+500, -(i / 3) + width, (qH+500) + (lerpedBuffer[i] * halfH * 2));
     }
     float average = total / (float) ab.size();
     
@@ -203,20 +204,30 @@ void draw()
     strokeWeight(3);
     stroke(c, 255, 255);
     float radius = 20 + (lerpedAverage * 450);
-    circle(halfW, halfH, radius * 2);
-    circle(halfW, halfH, radius * 1.75);
-    circle(halfW, halfH, radius * 1.5);
-    circle(halfW, halfH, radius * 1.25);
-    circle(halfW, halfH, radius * 1);
-    circle(halfW, halfH, radius * 0.75);
-    circle(halfW, halfH, radius * 0.5);
-    circle(halfW, halfH, radius * 0.25);
+    float radius1 = 20 + (lerpedAverage * 450)*-1;
+    triangle(radius*2, halfH, halfW, halfH+100, halfW, halfH);
+    triangle(halfW, radius*2, halfW, halfH+100, radius*2, halfH);
+    triangle(radius1*2+925, halfH, halfW, radius1*2+925, halfW, halfH);
+    triangle(halfW, halfH, halfW, halfH-100, radius1*2+925, halfH);
     
     float radius2 = 50 + (lerpedAverage * 1750);
-    line(0, 0, radius2, radius2);
-    line(width, 0, -(radius2) + width, radius2);
-    line(0, height, radius2, -(radius2) + height);
-    line(width, height, -(radius2) + width, -(radius2) + height);
+    line(250, 0, radius2, radius2);
+    line(750, 0, -(radius2) + width, radius2);
+    line(250, height, radius2, -(radius2) + height);
+    line(750, height, -(radius2) + width, -(radius2) + height);
+    line(350, 0, radius2, radius2);
+    line(650, 0, -(radius2) + width, radius2);
+    line(350, height, radius2, -(radius2) + height);
+    line(650, height, -(radius2) + width, -(radius2) + height);
+    
+    line(0, 250, radius2, radius2);
+    line(0, 750, radius2, -(radius2) + height);
+    line(1000, 250,-(radius2) + width, radius2);
+    line(1000, 750, -(radius2) + width, -(radius2) + height);
+    line(0, 350, radius2, radius2);
+    line(1000, 650,-(radius2) + width, -(radius2) + height);
+    line(1000, 350,-(radius2) + width, radius2);
+    line(0, 650,  radius2, -(radius2) + height);
   }
 }
 

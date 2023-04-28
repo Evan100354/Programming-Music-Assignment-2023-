@@ -26,6 +26,7 @@ void setup()
   
   ap = minim.loadFile("EnterTheDragon.mp3");
   ap1 = minim.loadFile("SelfMedication.mp3");
+  ap2 = minim.loadFile("Mahler.mp3");
   ai = minim.getLineIn(Minim.MONO, bufferSize, 44100, 16);
     
   fft = new FFT(bufferSize, 44100); 
@@ -46,6 +47,7 @@ Minim minim;
 AudioInput ai;
 AudioPlayer ap;
 AudioPlayer ap1;
+AudioPlayer ap2;
 AudioBuffer ab;
 
 FFT fft;
@@ -116,7 +118,7 @@ void draw()
     ap1.pause();
     ap1.rewind();
     
-    ab = ap.mix;
+    ab = ap.mix;    
     ap.play();
     background(0);
     noFill();
@@ -128,7 +130,7 @@ void draw()
     for (int i = 0 ; i < ab.size(); i ++)
     {
       total += abs(ab.get(i));
-      float c = map(i, 0, ab.size(), 0, 120);
+      float c = map(i, 0, ab.size(), 0, 255);
       stroke(c, 255, 255);
       lerpedBuffer[i] = lerp(lerpedBuffer[i], ab.get(i), 0.1f);
       line(i / 3, halfH, i / 3, halfH + (lerpedBuffer[i] * halfH * 2));
@@ -163,6 +165,25 @@ void draw()
     line(width, 0, -(radius2) + width, radius2);
     line(0, height, radius2, -(radius2) + height);
     line(width, height, -(radius2) + width, -(radius2) + height);
+    /*
+    line(250, 0, radius2, radius2);
+    line(350, 0, radius2, radius2);
+    line(650, 0, -(radius2) + width, radius2);
+    line(750, 0, -(radius2) + width, radius2);
+    line(250, height, radius2, -(radius2) + height);
+    line(350, height, radius2, -(radius2) + height);
+    line(650, height, -(radius2) + width, -(radius2) + height);
+    line(750, height, -(radius2) + width, -(radius2) + height);
+    
+    line(0, 250, radius2, radius2);
+    line(0, 350, radius2, radius2);
+    line(0, 650,  radius2, -(radius2) + height);
+    line(0, 750, radius2, -(radius2) + height);
+    line(1000, 250,-(radius2) + width, radius2);
+    line(1000, 350,-(radius2) + width, radius2);
+    line(1000, 650,-(radius2) + width, -(radius2) + height);
+    line(1000, 750, -(radius2) + width, -(radius2) + height);
+    */
   }
   
   if(key == 'e')

@@ -45,6 +45,7 @@ float rectMove = 0;
 float rectMove1 = 0;
 
 boolean camScan = false;
+boolean titleScreen = true;
 
 Minim minim;
 AudioInput ai;
@@ -63,21 +64,39 @@ float c = 0;
 
 void draw() 
 {
-  background(0);
-  strokeWeight(0);
-  fill(70, 255, 255);
-  textSize(20);
-  text(welcome, 0, 50);
-  text(exit, 0, 100);
-  text(stay, 0, 150);
+  if(titleScreen == true)
+  {
+    background(0);
+    strokeWeight(0);
+    fill(70, 255, 255);
+    textSize(20);
+    text(welcome, 0, 50);
+    text(exit, 0, 100);
+    text(stay, 0, 150);
+    
+    fill(0);
+    rect(rectMove, 0, 400, 60);
+    rect(rectMove - 400, 60, 800, 60);
+    rect(rectMove - 800, 110, 1300, 60);
+    rectMove = rectMove + 2;
+  }
   
-  fill(0);
-  rect(rectMove, 0, 400, 60);
-  rect(rectMove - 400, 60, 800, 60);
-  rect(rectMove - 800, 110, 1300, 60);
-  rectMove = rectMove + 2;
-  
-  
+  if(keyPressed == true)
+  {
+  if(key == ENTER)
+    {
+      if(cam.available())
+      {
+        cam.read();
+      }
+      image(cam, 0, 0);
+      
+      scale(2);
+      opencv.loadImage(cam);
+      
+      image(cam, 0, 0 );
+    }
+  }
   
   if(camScan == true)
   {
@@ -240,6 +259,7 @@ void keyReleased()
 {
   if(key == ENTER)
   {
+    titleScreen = false;
     Rectangle[] faces = opencv.detect();
       
     noFill();

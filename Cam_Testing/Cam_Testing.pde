@@ -5,6 +5,7 @@ import java.awt.*;
 Capture cam;
 OpenCV opencv;
 boolean camScan = false;
+boolean titleScreen = true;
 
 void setup()
 {
@@ -18,19 +19,9 @@ void setup()
 
 void draw()
 {
-  //background(0);
-  if(keyPressed == true)
+  if(titleScreen == true)
   {
-    if(cam.available())
-    {
-      cam.read();
-    }
-    image(cam, 0, 0);
-    
-    scale(2);
-    opencv.loadImage(cam);
-    
-    image(cam, 0, 0 );
+    background(0);
   }
   
   if(camScan == true)
@@ -44,10 +35,27 @@ void captureEvent(Capture c)
   c.read();
 }
 
+void keyPressed()
+{
+  if(keyPressed == true)
+  {
+    if(cam.available())
+    {
+      cam.read();
+    }
+    image(cam, 0, 0);
+    
+    scale(2);
+    opencv.loadImage(cam);
+    
+    image(cam, 0, 0 );
+  }
+}
 void keyReleased()
 {
   if(key == ENTER)
   {
+    titleScreen = false;
     Rectangle[] faces = opencv.detect();
       
     noFill();

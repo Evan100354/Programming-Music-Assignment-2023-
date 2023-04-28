@@ -18,11 +18,8 @@ void setup()
   cam.start();
   
   opencv.loadCascade(OpenCV.CASCADE_FRONTALFACE); 
-
-  cam.start();
   
   minim = new Minim(this);
-  
   ap = minim.loadFile("EnterTheDragon.mp3");
   ap1 = minim.loadFile("SelfMedication.mp3");
   ap2 = minim.loadFile("Mahler.mp3");
@@ -37,7 +34,7 @@ OpenCV opencv;
 String welcome = "Welcome to the Matrix.";
 String exit = "To Leave, Press ESC.";
 String stay = "To Continue, Press ENTER...";
-String scan = "Scanning... Scan Complete. Press C to continue.";
+String scan = "User Found. Scanning...";
 String menu1 = "Welcome Back User.";
 String menu2 = "To choose your selected soundtrack, Press L, E, P or O."; 
 
@@ -83,7 +80,7 @@ void draw()
   
   if(keyPressed == true)
   {
-  if(key == ENTER)
+    if(key == ENTER)
     {
       if(cam.available())
       {
@@ -274,7 +271,7 @@ void keyReleased()
     { 
       textSize(15);
       fill(70, 255, 255);
-      text("Scanning....", faces[i].x, faces[i].y - 10);
+      text(scan, faces[i].x, faces[i].y - 10);
     }
     camScan = true;
   }

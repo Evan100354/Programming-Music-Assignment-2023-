@@ -32,12 +32,12 @@ Capture cam;
 OpenCV opencv;
 
 String welcome = "Welcome to the Matrix.";
-String exit = "To leave, Press ESC.";
-String stay = "To continue to Authorization, hold ENTER until you are in focus.";
+String exit = "To leave, press ESC.";
+String stay = "To continue to authorization, hold ENTER until you are in focus.";
 String scan = "User Found. Scanning... Authorizing...";
-String cont = "Authorization Successful, press C to continue.";
-String menu1 = "Welcome, User.";
-String menu2 = "To choose your selected soundtrack, Press L, E, P or O."; 
+String cont = "Authorization successful, press C to continue.";
+String menu1 = "Welcome, User. ";
+String menu2 = "To choose your visualizer, Press L, E, P or O."; 
 
 float rectMove = 0;
 float rectMove1 = 0;
@@ -45,6 +45,9 @@ float rectMove1 = 0;
 boolean camScan = false;
 boolean titleScreen = true;
 boolean delayEnd = false;
+
+float userNum = random(100000);
+int userNumInt = floor(userNum);
 
 Minim minim;
 AudioInput ai;
@@ -104,7 +107,7 @@ void draw()
       background(0);
       textSize(20);
       fill(70, 255, 255);
-      text(menu1, 0, 50);
+      text(menu1 + userNumInt, 0, 50);
       text(menu2, 0, 100);
       
       fill(0);
@@ -162,12 +165,13 @@ void draw()
       circle(halfW, halfH, radius * 0.5);
       circle(halfW, halfH, radius * 0.25);
       
-      float radius2 = 50 + (lerpedAverage * 1750);
+      float radius2 = 50 + (lerpedAverage * 1900);
       line(0, 0, radius2, radius2);
       line(width, 0, -(radius2) + width, radius2);
       line(0, height, radius2, -(radius2) + height);
       line(width, height, -(radius2) + width, -(radius2) + height);
       
+      line(0, 0, radius2, radius2);
       line(250, 0, radius2, radius2);
       line(350, 0, radius2, radius2);
       line(650, 0, -(radius2) + width, radius2);
@@ -179,7 +183,7 @@ void draw()
       
       line(0, 250, radius2, radius2);
       line(0, 350, radius2, radius2);
-      line(0, 650,  radius2, -(radius2) + height);
+      line(0, 650, radius2, -(radius2) + height);
       line(0, 750, radius2, -(radius2) + height);
       line(1000, 250,-(radius2) + width, radius2);
       line(1000, 350,-(radius2) + width, radius2);

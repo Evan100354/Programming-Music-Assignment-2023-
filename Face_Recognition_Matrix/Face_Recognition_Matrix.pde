@@ -8,9 +8,12 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
+  AudioBuffer audioBuffer;
+  float degree = 0; 
+
 void setup() 
 {
-  size(1000, 1000);
+  size(1000, 1000,P3D);
   colorMode(HSB);
   
   cam = new Capture(this, 1000 / 2, 1000 / 2);
@@ -23,8 +26,9 @@ void setup()
   ap = minim.loadFile("EnterTheDragon.mp3");
   ap1 = minim.loadFile("SelfMedication.mp3");
   ap2 = minim.loadFile("Mahler.mp3");
+  ap3 = minim.loadFile("Hozier - Eat Your Young.mp3");
   ai = minim.getLineIn(Minim.MONO, bufferSize, 44100, 16);
-    
+  audioBuffer = ap3.mix;
   fft = new FFT(bufferSize, 44100); 
 }
 
@@ -54,6 +58,7 @@ AudioInput ai;
 AudioPlayer ap;
 AudioPlayer ap1;
 AudioPlayer ap2;
+AudioPlayer ap3;
 AudioBuffer ab;
 
 FFT fft;
@@ -255,6 +260,64 @@ void draw()
       line(1000, 650,-(radius2) + width, -(radius2) + height);
       line(1000, 350,-(radius2) + width, radius2);
       line(0, 650,  radius2, -(radius2) + height);
+    }
+    
+    if (key == 'p')
+    {
+      ap.pause();
+      ap.rewind();
+      ap1.rewind();
+      ap1.pause();
+      ap2.rewind();
+      ap2.pause();
+      
+      ab = ap3.mix;
+      ap3.play();
+      
+        background(76);
+  colorMode(HSB);
+  noFill();
+  strokeWeight(1);
+  float halfHeight = height / 2;
+  float halfWidth = width / 2;    
+  
+  //Circle visualiser start
+  {
+    float total = 0;
+    for (int i = 0 ; i < audioBuffer.size(); i ++)
+    {
+      total += abs(audioBuffer.get(i));
+      float c = map(i, 0,audioBuffer.size(), 0, 120);
+      stroke(c, 255, 255);
+      lerpedBuffer[i] = lerp(lerpedBuffer[i], audioBuffer.get(i), 0.1f);
+    }
+    float average = total / (float) audioBuffer.size();
+    lerpedAverage = lerp(lerpedAverage, average, 0.1f); 
+    degree = degree + 1;
+    if(degree >= 255)
+    {
+      degree = 0;
+    }  
+    strokeWeight(3);
+    stroke(degree, 255, 255);
+    float radius = 20 + (lerpedAverage * 450);
+    for (float i = 0 ; i < 5; i = i + 0.25)
+    {
+      circle(halfWidth, halfHeight, radius * i);
+    }
+  //Circle visualiser end
+           
+  //Rotator visualiser start
+  translate(halfWidth, halfHeight);
+  
+  for(int j = 0; j < ap3.bufferSize() - 1; j++) 
+  {
+    rotateZ(PI/degree);
+    fill(random(255),random(255),random(255));
+    rect(j,j,ap3.left.get(j)*degree,ap3.left.get(j)*degree);
+  }
+  //Rotator visualiser end
+  }
     }
   }
   

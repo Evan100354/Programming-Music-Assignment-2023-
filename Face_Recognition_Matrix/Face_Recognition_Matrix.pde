@@ -127,6 +127,11 @@ void draw()
     {
       ap1.pause();
       ap1.rewind();
+      ap2.pause();
+      ap2.rewind();
+      ap3.pause();
+      ap3.rewind();
+      
       
       ab = ap.mix;    
       ap.play();
@@ -201,6 +206,10 @@ void draw()
     {
       ap.pause();
       ap.rewind();
+      ap2.pause();
+      ap2.rewind();
+      ap3.pause();
+      ap3.rewind();
       
       ab = ap1.mix;
       ap1.play();

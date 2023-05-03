@@ -21,7 +21,7 @@ void setup()
   
   minim = new Minim(this);
   ap = minim.loadFile("EnterTheDragon.mp3");
-  ap1 = minim.loadFile("SelfMedication.mp3");
+  ap1 = minim.loadFile("Thunderstruck.mp3");
   ap2 = minim.loadFile("Mahler.mp3");
   ap3 = minim.loadFile("Hozier - Eat Your Young.mp3");
   ap4 = minim.loadFile("Daft Punk - One More Time (Official Audio).mp3");

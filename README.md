@@ -1,13 +1,13 @@
 Games Programming Assignment 2 2023. 
 
 # Project Title: The Matrix
-File Name - Face_Recognition_Matrix
+*File Name - Face_Recognition_Matrix*
 
 Group: Luke Noone, Peter Kavanagh, Oscar Jarvis, Evan Long.
 
 Student Number: 
-- C22532639 - (Luke Noone)
-- C22462456 - (Evan Long)
+- C22532639 - *(Luke Noone)*
+- C22462456 - *(Evan Long)*
 - 
 - 
 
@@ -30,7 +30,8 @@ References:
 
 # What I am most proud of in the assignment:
 ## Luke:
-I am most proud of learning how to use open.cv and processing video for this project so I could make the facial regonition authentication. It was also quite enjoyable setting up the sketch to have a security system using booleans. 
+I am most proud of learning how to use open.cv and processing video for this project so I could make the facial regonition authentication. 
+It was also quite enjoyable setting up the sketch to have a security system using booleans.
 ```Java
 if(camScan == true && delayEnd == false)
   {
@@ -46,7 +47,8 @@ if(camScan == true && delayEnd == false)
     delayEnd = true;
   }
 ```
-
+I enjoyed working through the problems that arose when trying to do certain things, and I often found myself working on a problem without noticing the time flying by, simply because I was enjoying testing things out and seeing what worked and what looked good for the project.
+I ended up choosing with 'Enter The Dragon' by BLK for my song because i thought it let the visualizer show its full range of motion very well.
 ## Evan:
 I most enjoyed picking out the song and matching the visuals to it. I ended up choosing "Thunderstruck" by AC/DC and I used a lightning bolt symbol to match the theme. I also changed the colours to match the original album cover that Thunderstruck was included in, along with yellow for the lightning.
 I also am quite proud of how much more comfortable I have become with processing and coding in general after dealing with many many issues over the course of the project. 

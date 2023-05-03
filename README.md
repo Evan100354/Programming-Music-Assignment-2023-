@@ -1,7 +1,7 @@
 Games Programming Assignment 2 2023. 
 
 # Project Title: The Matrix
-## File Name - Face_Recognition_Matrix
+File Name - Face_Recognition_Matrix
 
 Group: Luke Noone, Peter Kavanagh, Oscar Jarvis, Evan Long.
 

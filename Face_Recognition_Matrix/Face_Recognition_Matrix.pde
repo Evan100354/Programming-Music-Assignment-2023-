@@ -33,24 +33,6 @@ void setup()
 Capture cam;
 OpenCV opencv;
 
-String welcome = "Welcome to the Matrix.";
-String exit = "To leave, press ESC.";
-String stay = "To continue to authorization, hold ENTER until you are in focus.";
-String scan = "User Found. Scanning... Authorizing...";
-String cont = "Authorization successful, press C to continue.";
-String menu1 = "Welcome, User. ";
-String menu2 = "To choose your visualizer, Press L, E, P or O."; 
-
-float rectMove = 0;
-float rectMove1 = 0;
-
-boolean camScan = false;
-boolean titleScreen = true;
-boolean delayEnd = false;
-
-float userNum = random(100000);
-int userNumInt = floor(userNum);
-
 Minim minim;
 AudioInput ai;
 
@@ -69,6 +51,24 @@ float lerpedAverage = 0;
 float[] lerpedBuffer = new float[bufferSize];
 float c = 0;
 float degree = 0;
+
+String welcome = "Welcome to the Matrix.";
+String exit = "To leave, press ESC.";
+String stay = "To continue to authorization, hold ENTER until you are in focus.";
+String scan = "User Found. Scanning... Authorizing...";
+String cont = "Authorization successful, press C to continue.";
+String menu1 = "Welcome, User. ";
+String menu2 = "To choose your visualizer, Press L, E, P or O."; 
+
+float rectMove = 0;
+float rectMove1 = 0;
+
+boolean camScan = false;
+boolean titleScreen = true;
+boolean delayEnd = false;
+
+float userNum = random(100000);
+int userNumInt = floor(userNum);
 
 
 void draw() 

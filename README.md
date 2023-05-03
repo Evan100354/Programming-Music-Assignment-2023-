@@ -1,22 +1,36 @@
-# Programming-Music-Assignment-2023-
-Games programming lab 2 2023. Group: Luke Noone, Peter Kavanagh, Oscar Jarvis, Evan Long.
-Project Title
-Name:
+Games Programming Assignment 2 2023. 
 
-Student Number:
+# Project Title: The Matrix
 
-Class Group:
+Group: Luke Noone, Peter Kavanagh, Oscar Jarvis, Evan Long.
 
-Description of the project
-Instructions for use
-How it works
+Student Number: 
+- C22532639
+- 
+- 
+- 
+
+Description of the project:
+
+Instructions for use:
+
+How it works:
+
 List of classes/assets in the project and whether made yourself or modified or if its from a source, please give the reference
 Class/asset	Source
 MyClass.cs	Self written
 MyClass1.cs	Modified from reference
 MyClass2.cs	From reference
-References
-What I am most proud of in the assignment
+
+
+References:
+
+What I am most proud of in the assignment:
+-
+-
+-
+-
+
 Proposal submitted earlier can go here:
 This is how to markdown text:
 This is emphasis

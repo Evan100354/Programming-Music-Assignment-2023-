@@ -293,8 +293,13 @@ void draw()
       ap1.pause();
       ap2.rewind();
       ap2.pause();
+
      ap3.pause();
      ap3.rewind();
+
+      ap3.pause();
+      ap3.rewind();
+
       
       audioBuffer = ap4.mix;
       ap4.play();
@@ -305,50 +310,41 @@ void draw()
  
       float halfHeight = height / 2;
       float halfWidth = width / 2;    
-      
- 
-      
-   
+
         degree = degree + 1;
          
         strokeWeight(3);
         stroke(c, 255, 255);
-        
-        
-      
-      
         translate(halfWidth, halfHeight);
         
-        for(int j = 0; j < ap4.bufferSize() ; j++) 
-        {
-          rotateY(PI/degree);
-          
-          noStroke();
-          fill(c,(255),(255));
-          circle(j,j,ap4.left.get(j)*degree/10);
-          
         
+        for(int x = 0; x < ap4.bufferSize(); x++) 
+        {
+          
+          for(int y = 1; y< 250; y+=10)
+        {
+          rotateZ(PI/8);
+          rotateX(PI/y);
+          rotateY(PI/y);
+                noStroke();
+          fill(c,(255),(255));
+          circle(x,x,ap4.left.get(x)*50);
+        }
+            
+          
+          
           c = c + 1;
       if(c >= 255)
       {
         c = 0;
       }
         }
-   
-      
-      
-    
     
 
+    
     }
     
-    
-    
-    
-    
-    
-    
-    
+ 
     
     if (key == 'p')
     {
@@ -364,7 +360,7 @@ void draw()
       audioBuffer = ap3.mix;
       ap3.play();
       
-      background(76);
+      background(0);
   
       noFill();
       strokeWeight(1);

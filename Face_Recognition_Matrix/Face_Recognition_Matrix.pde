@@ -8,9 +8,6 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 
-AudioBuffer audioBuffer;
-float degree = 0;
-
 void setup() 
 {
   size(1000, 1000, P3D);
@@ -27,8 +24,9 @@ void setup()
   ap1 = minim.loadFile("SelfMedication.mp3");
   ap2 = minim.loadFile("Mahler.mp3");
   ap3 = minim.loadFile("Hozier - Eat Your Young.mp3");
+  
   ai = minim.getLineIn(Minim.MONO, bufferSize, 44100, 16);
-  audioBuffer = ap3.mix;
+  
   fft = new FFT(bufferSize, 44100); 
 }
 
@@ -55,11 +53,14 @@ int userNumInt = floor(userNum);
 
 Minim minim;
 AudioInput ai;
+
 AudioPlayer ap;
 AudioPlayer ap1;
 AudioPlayer ap2;
 AudioPlayer ap3;
+
 AudioBuffer ab;
+AudioBuffer audioBuffer;
 
 FFT fft;
 
@@ -67,6 +68,7 @@ int bufferSize = 1024;
 float lerpedAverage = 0;
 float[] lerpedBuffer = new float[bufferSize];
 float c = 0;
+float degree = 0;
 
 
 void draw() 
@@ -281,7 +283,7 @@ void draw()
       ap2.rewind();
       ap2.pause();
       
-      ab = ap3.mix;
+      audioBuffer = ap3.mix;
       ap3.play();
       
       background(76);

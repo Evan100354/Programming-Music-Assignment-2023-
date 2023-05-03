@@ -308,7 +308,7 @@ void draw()
       audioBuffer = ap3.mix;
       ap3.play();
       
-      background(76);
+      background(0);
   
       noFill();
       strokeWeight(1);

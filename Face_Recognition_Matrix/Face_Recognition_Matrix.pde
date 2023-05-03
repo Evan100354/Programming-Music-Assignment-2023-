@@ -24,7 +24,7 @@ void setup()
   ap1 = minim.loadFile("SelfMedication.mp3");
   ap2 = minim.loadFile("Mahler.mp3");
   ap3 = minim.loadFile("Hozier - Eat Your Young.mp3");
-  ap4 = minim.loadFile("Daft Punk - One More Time (Official Audio)");
+  ap4 = minim.loadFile("Daft Punk - One More Time (Official Audio).mp3");
   ai = minim.getLineIn(Minim.MONO, bufferSize, 44100, 16);
   
   fft = new FFT(bufferSize, 44100); 
@@ -279,6 +279,12 @@ void draw()
       line(0, 650,  radius2, -(radius2) + height);
     }
     
+    
+    
+    
+    
+    
+    
     if (key == 'o')
     {
        ap.pause();
@@ -287,12 +293,62 @@ void draw()
       ap1.pause();
       ap2.rewind();
       ap2.pause();
-      ap4.pause();
-      ap4.rewind();
+     ap3.pause();
+     ap3.rewind();
       
-      audioBuffer = ap3.mix;
+      audioBuffer = ap4.mix;
       ap4.play();
+      background(0);
+      noFill();
+      strokeWeight(1);
+      
+ 
+      float halfHeight = height / 2;
+      float halfWidth = width / 2;    
+      
+ 
+      
+   
+        degree = degree + 1;
+         
+        strokeWeight(3);
+        stroke(c, 255, 255);
+        
+        
+      
+      
+        translate(halfWidth, halfHeight);
+        
+        for(int j = 0; j < ap4.bufferSize() ; j++) 
+        {
+          rotateY(PI/degree);
+          
+          noStroke();
+          fill(c,(255),(255));
+          circle(j,j,ap4.left.get(j)*degree/10);
+          
+        
+          c = c + 1;
+      if(c >= 255)
+      {
+        c = 0;
+      }
+        }
+   
+      
+      
+    
+    
+
     }
+    
+    
+    
+    
+    
+    
+    
+    
     
     if (key == 'p')
     {

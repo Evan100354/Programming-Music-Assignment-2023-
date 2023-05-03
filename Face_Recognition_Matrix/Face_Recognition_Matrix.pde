@@ -24,7 +24,7 @@ void setup()
   ap1 = minim.loadFile("SelfMedication.mp3");
   ap2 = minim.loadFile("Mahler.mp3");
   ap3 = minim.loadFile("Hozier - Eat Your Young.mp3");
-  
+  ap4 = minim.loadFile("Daft Punk - One More Time (Official Audio)");
   ai = minim.getLineIn(Minim.MONO, bufferSize, 44100, 16);
   
   fft = new FFT(bufferSize, 44100); 
@@ -40,6 +40,7 @@ AudioPlayer ap;
 AudioPlayer ap1;
 AudioPlayer ap2;
 AudioPlayer ap3;
+AudioPlayer ap4;
 
 AudioBuffer ab;
 AudioBuffer audioBuffer;
@@ -134,6 +135,8 @@ void draw()
       ap2.rewind();
       ap3.pause();
       ap3.rewind();
+      ap4.pause();
+      ap4.rewind();
       
       
       ab = ap.mix;    
@@ -213,6 +216,8 @@ void draw()
       ap2.rewind();
       ap3.pause();
       ap3.rewind();
+      ap4.pause();
+      ap4.rewind();
       
       ab = ap1.mix;
       ap1.play();
@@ -274,6 +279,21 @@ void draw()
       line(0, 650,  radius2, -(radius2) + height);
     }
     
+    if (key == 'o')
+    {
+       ap.pause();
+      ap.rewind();
+      ap1.rewind();
+      ap1.pause();
+      ap2.rewind();
+      ap2.pause();
+      ap4.pause();
+      ap4.rewind();
+      
+      audioBuffer = ap3.mix;
+      ap4.play();
+    }
+    
     if (key == 'p')
     {
       ap.pause();
@@ -282,6 +302,8 @@ void draw()
       ap1.pause();
       ap2.rewind();
       ap2.pause();
+      ap4.pause();
+      ap4.rewind();
       
       audioBuffer = ap3.mix;
       ap3.play();

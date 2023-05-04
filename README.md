@@ -49,9 +49,11 @@ if(camScan == true && delayEnd == false)
 ```
 I enjoyed working through the problems that arose when trying to do certain things, and I often found myself working on a problem without noticing the time flying by, simply because I was enjoying testing things out and seeing what worked and what looked good for the project.
 I ended up choosing with 'Enter The Dragon' by BLK for my song because i thought it let the visualizer show its full range of motion very well.
+
 ## Evan:
-I most enjoyed picking out the song and matching the visuals to it. I ended up choosing "Thunderstruck" by AC/DC and I used a lightning bolt symbol to match the theme. I also changed the colours to match the original album cover that Thunderstruck was included in, along with yellow for the lightning.
-I also am quite proud of how much more comfortable I have become with processing and coding in general after dealing with many many issues over the course of the project. 
+  I most enjoyed picking out the song and matching the visuals to it. I ended up choosing "Thunderstruck" by AC/DC and I used a lightning bolt symbol to match the theme. I also changed the colours to match the original album cover that Thunderstruck was included in, along with yellow for the lightning.
+  I also am quite proud of how much more comfortable I have become with processing and coding in general after dealing with many many issues over the course of the project.
+  Another thing I enjoyed was attempting to use my electric guitar as an input device but unfortunately I wasn't able to get it working in the right way, it would only pick up sound through a normal microphone.
 
 ## Oscar:
 
